@@ -1,0 +1,7 @@
+package views
+
+templ Result(code string) {
+	@Layout() {
+		<p>Shortened URL: <a href={ "/" + code }>{ "/" + code }</a></p>
+	}
+}

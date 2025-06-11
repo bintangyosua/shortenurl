@@ -1,0 +1,20 @@
+package views
+
+import "github.com/bintangyosua/shortenurl/models"
+
+templ Index(urls []models.URL) {
+	@Layout() {
+		<h1>Shorten Your URL</h1>
+		<form hx-post="/shorten" hx-target="#result" class="form">
+			<input type="url" name="original_url" placeholder="Enter URL..." required/>
+			<button type="submit">Shorten</button>
+		</form>
+		<div id="result">
+			<ol>
+				for _, url := range urls {
+	                <li><a href={"/" + url.ShortCode}>Shortened: { url.ShortCode } | Original: {url.OriginalURL}</a></li>
+            	}
+			</ol>
+		</div>
+	}
+}

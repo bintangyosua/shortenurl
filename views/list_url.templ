@@ -1,0 +1,13 @@
+package views
+
+import "github.com/bintangyosua/shortenurl/models"
+
+templ ListUrl(urls []models.URL) {
+    @Layout() {
+        <ol>
+            for _, url := range urls {
+                <li><a href={ url.OriginalURL }>{ url.ShortCode }</a></li>
+            }
+        </ol>
+    }
+}
